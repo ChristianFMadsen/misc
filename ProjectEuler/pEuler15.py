@@ -1,56 +1,5 @@
-import random
 import numpy as np
 import math
-
-
-def randomAttempt():
-    def generateRandomPath(length):
-        directions = ['d', 'r']
-        path = ''
-
-        while len(path) < length:
-            if path.count('d') == length / 2:
-                while len(path) < length:
-                    path = path + 'r'
-                    break
-
-            elif path.count('r') == length / 2:
-                while len(path) < length:
-                    path = path + 'd'
-                    break
-
-            else:
-                rand = random.randint(0, 1)
-                currentDirection = directions[rand]
-                path = path + currentDirection
-
-        return path
-
-    def invertPath(path):
-        invertedPath = ''
-        for i in path:
-            if i == 'd':
-                invertedPath = invertedPath + 'r'
-            else:
-                invertedPath = invertedPath + 'd'
-
-        return invertedPath
-
-    uniquePaths = []
-    consecDups = 0
-    while consecDups < 50:
-        path = generateRandomPath(20)
-        invPath = invertPath(path)
-        if path not in uniquePaths:
-            uniquePaths.append(path)
-            consecDups = 0
-
-        if invPath not in uniquePaths:
-            uniquePaths.append(invPath)
-            consecDups = 0
-
-        if path in uniquePaths or invPath in uniquePaths:
-            consecDups += 1
 
 
 # Number of paths follows Pascal's triangle
