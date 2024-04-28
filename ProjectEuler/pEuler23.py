@@ -29,7 +29,7 @@ for i in range(totalAbundantNumbers):
     j = i
     while j < totalAbundantNumbers:
         sumAbundantNumbers = abundantNumbers[i] + abundantNumbers[j]
-        if sumAbundantNumbers > 28123:
+        if sumAbundantNumbers > upperBound:
             break
         elif sumAbundantNumbers in numbers:
             numbers.discard(sumAbundantNumbers)
